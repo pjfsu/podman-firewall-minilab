@@ -1,0 +1,40 @@
+config zone
+	option name 'zone0'
+	list network 'net0'
+	option input 'REJECT'
+	option output 'REJECT'
+	option forward 'REJECT'
+
+# r1 pings r0
+config rule
+	option name 'Allow-Ping-Request-Out'
+	option dest 'zone0'
+	option proto 'icmp'
+	option icmp_type 'echo-request'
+	option family 'ipv4'
+	option target 'ACCEPT'
+
+config rule
+	option name 'Allow-Ping-Reply-In'
+	option src 'zone0'
+	option proto 'icmp'
+	option icmp_type 'echo-reply'
+	option family 'ipv4'
+	option target 'ACCEPT'
+
+# r0 pings r1
+config rule
+	option name 'Allow-Ping-Request-In'
+	option src 'zone0'
+	option proto 'icmp'
+	option icmp_type 'echo-request'
+	option family 'ipv4'
+	option target 'ACCEPT'
+
+config rule
+	option name 'Allow-Ping-Reply-Out'
+	option dest 'zone0'
+	option proto 'icmp'
+	option icmp_type 'echo-reply'
+	option family 'ipv4'
+	option target 'ACCEPT'
