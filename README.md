@@ -58,7 +58,7 @@ Before starting, make sure you have the following:
 
 ### `/etc/config/firewall`
 
-| Router | Zone  | Interface | Default Policy (input/output/forward) | Rules                                                                 |
+| Router | Zone  | Interface | Default Policy<br>input / output / forward | Rules                                                                 |
 |--------|-------|-----------|----------------------------------------|-----------------------------------------------------------------------|
 | r0     | zone0 | net0      | REJECT / REJECT / REJECT               | Allow-Ping-Request-Out<br>Allow-Ping-Reply-In<br>Allow-Ping-Request-In<br>Allow-Ping-Reply-Out |
 | r1     | zone0 | net0      | REJECT / REJECT / REJECT               | Allow-Ping-Request-Out<br>Allow-Ping-Reply-In<br>Allow-Ping-Request-In<br>Allow-Ping-Reply-Out |
